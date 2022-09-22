@@ -1,6 +1,6 @@
 customhost = "y4-employee.czdbird0ictp.us-east-1.rds.amazonaws.com"
 customuser = "y4_admin"
 custompass = "Bait3273"
-customdb = "y4-employee"
+customdb = "y4_db"
 custombucket = "y4-bucket"
 customregion = "us-east-1"
