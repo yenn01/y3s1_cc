@@ -150,7 +150,7 @@ def AddEmp():
         connection.commit()
         emp_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
-        emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
+        emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file.jpg"
         s3 = boto3.resource('s3')
 
         try:
@@ -176,6 +176,7 @@ def AddEmp():
                 emp_image_file_name_in_s3)
 
             print(object_url)
+            return object_url,200
 
         except Exception as e:
             print(e)
@@ -185,7 +186,7 @@ def AddEmp():
         cursor.close()
 
     print("all modification done...")
-    return render_template('AddEmpOutput.html', name=emp_name)
+    return "Error",400
 
 @app.route("/readEmp",methods=['GET'])
 def reademp():
