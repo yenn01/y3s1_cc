@@ -1,6 +1,6 @@
 from email.errors import CloseBoundaryNotFoundDefect
 from logging import exception
-from flask import Flask, render_template, request, send_from_directory, jsonify
+from flask import Flask, render_template, request, send_from_directory, jsonify, redirect, url_for
 #from flask_cors import CORS #For Testing
 import pymysql
 import os
@@ -176,7 +176,7 @@ def AddEmp():
                 emp_image_file_name_in_s3)
 
             print(object_url)
-            return object_url,200
+            return redirect(url_for(app.editemp))
 
         except Exception as e:
             print(e)
